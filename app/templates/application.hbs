@@ -1,0 +1,53 @@
+  <header>
+  <nav class="navbar navbar-transparent">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-transparent">
+	  <span class="sr-only">Toggle navigation</span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+	  <span class="icon-bar"></span>
+        </button>
+        {{#link-to "index" class="navbar-brand"}}Arte Electrónico argentino{{/link-to}}
+      </div>
+
+      <div class="collapse navbar-collapse" id="example-navbar-transparent">
+        <ul class="nav navbar-nav navbar-right">
+	  <li>
+            {{#link-to "exhibition" class="hvr-underline-from-center hvr-underline-from-center-top"}}Exhibiciones{{/link-to}}
+	  </li>
+	  <li>
+            {{#link-to "technique" class="hvr-underline-from-center hvr-underline-from-center-top"}}Técnicas{{/link-to}}
+	  </li>
+	  <li>
+            {{#link-to "location" class="hvr-underline-from-center hvr-underline-from-center-top"}}Locaciones{{/link-to}}
+	  </li>
+	  <li>
+            {{#link-to "event" class="hvr-underline-from-center hvr-underline-from-center-top"}}Eventos{{/link-to}}
+	  </li>
+	  <li>
+            {{#link-to "search" class="hvr-underline-from-center hvr-underline-from-center-top"}}Buscar{{/link-to}}
+	  </li>
+	  <li>
+            {{#link-to "help" class="hvr-underline-from-center hvr-underline-from-center-top"}}API{{/link-to}}
+	  </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+  <div class="container">
+    {{ outlet }}
+  </div>
+
+  <footer class="main">
+    <div class="text-center">
+      <span class="copyleft">&copy;</span> 2015, 2016 - {{#link-to "license"}}MIT LICENCE{{/link-to}}
+    </div>
+    <ul class="foot text-center">
+      <li><a href="https://github.com/cristianReynaga/Dataset-Arte-Electronico-Argentino">Dataset</a></li>
+      <li><a href="https://github.com/lvm/api-dataset-arte-electronico-argentino">JSON API</a></li>
+      <li><a href="https://github.com/lvm/site-dataset-arte-electronico-argentino">sitio web</a></li>
+    </ul>
+  </footer>

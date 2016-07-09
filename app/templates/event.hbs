@@ -1,0 +1,29 @@
+{{#if model}}
+
+  <div class="last-row">
+    {{page-numbers content=model}}
+  </div>
+
+  <table class="table main">
+    <tbody>
+      {{#each model as |ev|}}
+        <tr class="last-row">
+          <td>
+            {{#link-to "search" (query-params exhibition=ev.event)  class=""}}{{ ev.event }}{{/link-to}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div>
+    {{page-numbers content=model}}
+  </div>
+
+  {{else}}
+
+  No hay lugares para mostrar?
+
+{{/if}}
+
+{{outlet}}

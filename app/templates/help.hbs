@@ -1,0 +1,164 @@
+<div class="main">
+  <section>
+
+    <p>
+      La versión actual de la <code>API</code> es <code>v2</code>
+    </p>
+
+    <h2>Endpoints</h2>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/</code>
+    </pre>
+
+    <p>
+      Hay varias maneras de consultar los datos: <code>exhibitions</code>, <code>events</code>, <code>locations</code>, <code>techniques</code> y <code>search</code>. <br>
+      Todos los <em>metodos</em> aceptan <em>requests</em> <code>GET</code> y <code>OPTION</code> solamente.
+    </p>
+
+    <h3>Constultando Exhibiciones</h3>
+
+    <p>
+      Este metodo permite consultarlos a todos o solamente a uno.
+    </p>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/exhibitions</code>
+    </pre>
+
+    <p>
+      De esta manera obtenemos de a 20 items por página. Para obtener mas, es necesario utilizar al parametro <code>?page=n</code> a traves de un <em>request</em> <code>GET</code>
+    </p>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/exhibitions/23</code>
+    </pre>
+
+    <p>
+      De esta otra manera obtenemos solamente al item pedido.
+    </p>
+
+
+    <h3>Constultando Eventos</h3>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/events</code>
+    </pre>
+
+    <p>
+      De esta manera obtenemos de a 20 items por página. Para obtener mas, es necesario utilizar al parametro <code>?page=n</code> a traves de un <em>request</em> <code>GET</code>
+    </p>
+
+    <h3>Constultando Locaciones</h3>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/locations</code>
+    </pre>
+
+    <p>
+      De esta manera obtenemos de a 20 items por página. Para obtener mas, es necesario utilizar al parametro <code>?page=n</code> a traves de un <em>request</em> <code>GET</code>
+    </p>
+
+    <h3>Constultando Técnicas</h3>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/techniques</code>
+    </pre>
+
+    <p>
+      De esta manera obtenemos de a 20 items por página. Para obtener mas, es necesario utilizar al parametro <code>?page=n</code> a traves de un <em>request</em> <code>GET</code>
+    </p>
+
+    <h3>Buscando Exhibiciones</h3>
+
+    <pre>
+      <code>GET http://api.arte-electronico.cyberpunk.com.ar/exhibitions/23</code>
+    </pre>
+
+    <p>
+      Este metodo permite buscar principalmente por el nombre del evento (por ejemplo, {{#link-to "search" (query-params q="Artes del Tercer Milenio") class=""}}Artes del Tercer Milenio{{/link-to}}), además es posible pasar parametros adicionales para limitar la consulta.<br>
+      Estos parametros extras utilizan al operador <code>AND</code> al construir la consulta.
+    </p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Parametros</th>
+          <th>Valores aceptados</th>
+        </tr>
+      </thead><tbody>
+        <tr>
+          <td><code>q</code></td>
+          <td><code>string</code>. Nombre completo o parte del nombre de una exhibición.</td>
+        </tr>
+        <tr>
+          <td><code>year</code></td>
+          <td><code>int (32)</code>. El formato <em>válido</em> debe ser <code>YYYY</code>.</td>
+        </tr>
+        <tr>
+          <td><code>when</code></td>
+          <td>
+            <code>int (32)</code>.
+            Sólo acepta <code>since</code> y <code>until</code>. Funcionan como <code>mayor-o-igual-que</code> y <code>menor-o-igual-que</code> respectivamente. Requieren del parametro <code>year</code> para funcionar.</td>
+        </tr>
+        <tr>
+          <td><code>technique</code></td>
+          <td><code>string</code>. Nombre (o parte) de la técnica.</td>
+        </tr>
+        <tr>
+          <td><code>curator</code></td>
+          <td><code>string</code>. Nombre (o parte) del curador.</td>
+        </tr>
+        <tr>
+          <td><code>artist</code></td>
+          <td><code>string</code>. Nombre (o parte) del artista.</td>
+        </tr>
+        <tr>
+          <td><code>work</code></td>
+          <td><code>string</code>. Nombre (o parte) de la obra.</td>
+        </tr>
+        <tr>
+          <td><code>page</code></td>
+          <td><code>int (32)</code>. Número de página. Cáda página muestra 20 items.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Ejemplos</h3>
+
+    <h4>Obtener exhibiciones cuyo nombre contenga <code>festival</code></h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival</code></pre>
+
+    <h4>...durante 1998</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998</code></pre>
+
+    <h4>...hasta 1998</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=until</code></pre>
+
+    <h4>...desde 1998</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=since</code></pre>
+
+    <h4>...utilizando la técnica <code>videoart</code></h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=since&amp;technique=videoart</code></pre>
+
+    <h4>...curado por Graciela Taquini</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=since&amp;technique=videoart&amp;curator=taquini</code></pre>
+
+    <h4>...por la artista Joanna Rytel</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=since&amp;technique=videoart&amp;curator=taquini&amp;artist=rytel</code></pre>
+
+    <h4>...cuya obra contiene <code>sheep</code> en el nombre</h4>
+
+    <pre><code>GET http://api.arte-electronico.cyberpunk.com.ar/search?q=festival&amp;year=1998&amp;when=since&amp;technique=videoart&amp;curator=taquini&amp;artist=rytel&amp;work=sheep</code></pre>
+
+  </section>
+</div>
+
+{{ outlet }}

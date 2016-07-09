@@ -1,0 +1,40 @@
+  <div class="main">
+
+    <form method="get" action="">
+      <fieldset class="form-group">
+        <label for="q" class="hidden">Exhibiciones</label>
+        {{input value=q placeholder="Exhibiciones" type="text" class="form-control form-item form-item-md" name="q" id="q"}}
+        <label for="work" class="hidden">Obras</label>
+        {{input value=work placeholder="Obras" type="text" class="form-control form-item form-item-md" name="work" id="work"}}
+        <label for="artist" class="hidden">Artista</label>
+        {{input value=artist placeholder="Artista" type="text" class="form-control form-item form-item-md" name="artist" id="artist"}}
+        <label for="curator" class="hidden">Curador</label>
+        {{input value=curator placeholder="Curador" type="text" class="form-control form-item form-item-md" name="curator" id="curator"}}
+        <label for="location" class="hidden">Locaciones</label>
+        {{input value=location placeholder="Locaciones" type="text" class="form-control form-item form-item-md" name="location" id="location"}}
+        <label for="technique" class="hidden">Técnicas</label>
+        {{input value=technique placeholder="Técnicas" type="text" class="form-control form-item form-item-md" name="technique" id="technique"}}
+        <div class="btn-checkbox">
+        <label for="since">
+          {{input checked=since placeholder="Desde" type="checkbox" class="form-control form-item form-item-md" name="since" id="since"}}
+          <span>desde</span>
+        </label>
+        </div>
+        <div class="btn-checkbox">
+        <label for="until">
+          {{input checked=until placeholder="Hasta" type="checkbox" class="form-control form-item form-item-md" name="until" id="until"}}
+          <span>hasta</span>
+        </label>
+        </div>
+        <label for="year" class="hidden">Año</label>
+        {{input value=year placeholder="Año" type="text" class="form-control form-item form-item-md" name="year" id="year"}}
+      </fieldset>
+      <fieldset>
+        <button class="form-item">Buscar</button>
+      </fieldset>
+    </form>
+  </div>
+
+  {{ search-result result=model }}
+
+{{ outlet }}

@@ -1,0 +1,36 @@
+{{#if model}}
+
+  <div class="last-row">
+    {{page-numbers content=model totalPages=80}}
+  </div>
+
+  <table class="table main">
+    <tbody>
+      {{#each model as |ex|}}
+        <tr class="last-row">
+          <td>
+            {{# if ex.work }}{{ ex.work }}{{ else }}<span class="underline-dotted work-disabled" title="Nombre no disponible">Nombre no disponible</span>{{/if}}
+            {{#link-to "search" (query-params technique=ex.technique) class="pull-right"}}{{ capitalize words=ex.technique }}{{/link-to}}<br>
+            {{# if ex.artist0 }}Artista(s): {{ artists-involved exhibition=ex }}{{/if}}<br>
+            {{# if exhibition.curator0 }}Curador(es): {{ curators-involved exhibition=exhibition }}<br>{{/if}}
+            {{#link-to "search" (query-params q=ex.exhibition) class=""}}
+              {{ ex.exhibition }}
+            {{/link-to}}, <span class="underline-dotted" title="{{ formatted-date date=exhibition.start format='LL' }} al {{ formatted-date date=exhibition.end format='LL' }}">{{ ex.year }}</span>
+            en {{#link-to "search" (query-params location=ex.location)  class=""}}{{ ex.location }}{{/link-to}}
+            </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <div>
+    {{page-numbers content=model totalPages=80}}
+  </div>
+
+  {{else}}
+
+  No hay obras para mostrar
+
+{{/if}}
+
+{{outlet}}
