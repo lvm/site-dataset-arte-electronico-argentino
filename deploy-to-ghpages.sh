@@ -33,6 +33,6 @@ git commit -m "deploy to gh-pages (on: `date -R`)"
 # repo's gh-pages branch. (All previous history on the gh-pages branch
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-git push --force "https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}" master:gh-pages
+git push --force "https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}" master:gh-pages > /dev/null 2>&1
 
 echo "DEPLOY COMPLETE!"
