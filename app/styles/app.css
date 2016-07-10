@@ -44,6 +44,11 @@ a.navbar-brand{
   background:#fff;
 }
 
+.navbar-toggle {
+  border-radius: 0 !important;
+  background: #b0e9e9 !important;
+}
+
 .table>tbody>tr>td,
 .table-striped>tbody>tr>td,
 .table-striped>tbody>tr>th{
