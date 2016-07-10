@@ -177,3 +177,15 @@ ul.foot li {
 footer {
   margin:50px;
 }
+
+.margin-10 {
+  margin:10px;
+}
+
+.clear-both {
+  clear:both;
+}
+
+.list-group-item {
+  border:0;
+}

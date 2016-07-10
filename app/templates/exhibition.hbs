@@ -9,14 +9,26 @@
       {{#each model as |ex|}}
         <tr class="last-row">
           <td>
-            {{# if ex.work }}{{ ex.work }}{{ else }}<span class="underline-dotted work-disabled" title="Nombre no disponible">Nombre no disponible</span>{{/if}}
-            {{#link-to "search" (query-params technique=ex.technique) class="pull-right"}}{{ capitalize words=ex.technique }}{{/link-to}}<br>
-            {{# if ex.artist0 }}Artista(s): {{ artists-involved exhibition=ex }}{{/if}}<br>
-            {{# if exhibition.curator0 }}Curador(es): {{ curators-involved exhibition=exhibition }}<br>{{/if}}
-            {{#link-to "search" (query-params q=ex.exhibition) class=""}}
-              {{ ex.exhibition }}
-            {{/link-to}}, <span class="underline-dotted" title="{{ formatted-date date=exhibition.start format='LL' }} al {{ formatted-date date=exhibition.end format='LL' }}">{{ ex.year }}</span>
-            en {{#link-to "search" (query-params location=ex.location)  class=""}}{{ ex.location }}{{/link-to}}
+
+<div class="list-group">
+  <div class="list-group-item">
+    <h4 class="list-group-item-heading">
+      <span class="margin-10 pull-left">
+        {{# if ex.work }}{{ ex.work }}{{ else }}<span class="underline-dotted work-disabled" title="Nombre no disponible">Nombre no disponible</span>{{/if}}<br>
+      </span>
+      {{#link-to "search" (query-params technique=ex.technique) class="pull-right"}}{{ capitalize words=ex.technique }}{{/link-to}}<br>
+    </h4>
+    <p class="list-group-item-text clear-both">
+      {{# if ex.artist0 }}Artista(s): {{ artists-involved exhibition=ex }}{{/if}}<br>
+      {{# if ex.curator0 }}Curador(es): {{ curators-involved exhibition=ex }}<br>{{/if}}
+      {{#link-to "search" (query-params q=ex.exhibition) class=""}}
+        {{ ex.exhibition }}
+      {{/link-to}}, <span class="underline-dotted" title="{{ formatted-date date=ex.start format='LL' }} al {{ formatted-date date=ex.end format='LL' }}">{{ ex.year }}</span>
+      en {{#link-to "search" (query-params location=ex.location)  class=""}}{{ ex.location }}{{/link-to}}
+    </p>
+  </div>
+</div>
+
             </td>
         </tr>
       {{/each}}

@@ -9,7 +9,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('license');
-  this.route('help');
+  this.route('docs');
   this.route('exhibition');
   this.route('event');
   this.route('location');
